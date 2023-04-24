@@ -1,5 +1,6 @@
 import argparse
 import itertools
+import nltk
 
 from tensorboardX import SummaryWriter
 import torch
@@ -20,6 +21,7 @@ from visdialch.metrics import SparseGTMetrics, NDCG
 from visdialch.model import EncoderDecoderModel
 from visdialch.utils.checkpointing import CheckpointManager, load_checkpoint
 
+nltk.download('punkt')
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
@@ -107,7 +109,7 @@ torch.backends.cudnn.deterministic = True
 args = parser.parse_args()
 
 # keys: {"dataset", "model", "solver"}
-config = yaml.load(open(args.config_yml))
+config = yaml.full_load(open(args.config_yml))
 
 if isinstance(args.gpu_ids, int):
     args.gpu_ids = [args.gpu_ids]

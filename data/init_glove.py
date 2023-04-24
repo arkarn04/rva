@@ -26,7 +26,7 @@ parser.add_argument(
 args = parser.parse_args(args=[])
 
 # keys: {"dataset", "model", "solver"}
-config = yaml.load(open(args.config_yml))
+config = yaml.full_load(open(args.config_yml))
 
 # ================================================================================================
 #   SETUP DATASET

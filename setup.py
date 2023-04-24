@@ -10,4 +10,5 @@ setup(
     description="Code for RvA",
     license="BSD",
     zip_safe=True,
+    py_modules=[]
 )
